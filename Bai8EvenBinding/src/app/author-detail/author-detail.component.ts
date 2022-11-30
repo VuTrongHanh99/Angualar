@@ -1,11 +1,22 @@
-import {  Author } from './../authours';
-import { Component, Input } from '@angular/core';
+import {  Author } from '../authours.model';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-author-detail',
-  templateUrl: './author-detail.component.html',
-  styleUrls: ['./author-detail.component.css']
+  template: `
+    <div *ngIf="author">
+      <strong>{{ author.firstName }} {{ author.lastName }}</strong>
+      <button (click)="handleDelete()">x</button>
+    </div>
+  `,
+  styles: [``],
 })
-export class AuthorDetailComponent {
-  @Input() author: Author | undefined
+export class AuthorDetailComponent implements OnInit {
+  @Input() author: Author | undefined;
+  @Output() deleteAuthor = new EventEmitter<Author>();
+  constructor() {}
+  ngOnInit() {}
+  handleDelete() {
+    this.deleteAuthor.emit(this.author);
+  }
 }

@@ -1,11 +1,21 @@
-import { Component } from '@angular/core';
-import {authors} from 'src/app/authours';
+import { Component, OnInit } from '@angular/core';
+import {Author, authors} from 'src/app/authours.model';
 
 @Component({
   selector: 'app-author-list',
-  templateUrl: './author-list.component.html',
-  styleUrls: ['./author-list.component.css']
+  template: `<app-author-detail
+    *ngFor="let author of authors"
+    [author]="author"
+    (deleteAuthor)="handleDelete($event)"
+  >
+  </app-author-detail>`,
+  styles: [``],
 })
-export class AuthorListComponent {
-  authors=authors
+export class AuthorListComponent implements OnInit {
+  authors = authors;
+  constructor() {}
+  ngOnInit() {}
+  handleDelete(author: Author) {
+    this.authors = this.authors.filter((item) => item.id !== author.id);
+  }
 }
