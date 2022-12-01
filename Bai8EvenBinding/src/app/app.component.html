@@ -1,5 +1,5 @@
 <app-author-list></app-author-list>
-<br/>
+<br />
 <p>Your name: {{ name }}</p>
 <!-- [(ngModel)] để có được Two-way binding. -->
 <!-- <input type="text" [(ngModel)]="name" /> -->
@@ -7,4 +7,21 @@
 <input type="text" [ngModel]="name" (ngModelChange)="name = $event" />
 
 
-<app-toggle [(checked)]="checked"></app-toggle>
+<app-name-form></app-name-form>
+
+<app-toggle #toggleComp [(checked)]="checked"></app-toggle>
+<app-toggle [(checked)]="questions.question1">
+    <h3 class="toogle-header">Header 1</h3>
+    <label>Question 1</label>
+    <span>Some paragraph</span>
+</app-toggle>
+
+<app-toggle [(checked)]="questions.question2">
+    <h3 class="toogle-header">Header 2</h3>
+    <span>Some paragraph 2</span>
+    <label>Question 2</label>
+</app-toggle>
+
+<button (click)="toggleComp.toggle()">change</button>
+
+<div #chartContainer>AA</div>
