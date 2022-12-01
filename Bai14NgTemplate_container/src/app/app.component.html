@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card mx-4">
   <div class="card-header">
     You have selected
     <ng-container [ngTemplateOutlet]="counterTmpl"></ng-container>.
@@ -12,7 +12,13 @@
     <ng-container [ngTemplateOutlet]="counterTmpl"></ng-container>.
   </div>
 </div>
-
 <ng-template #counterTmpl>
   <span class="badge badge-primary">{{ counter }}</span> items
 </ng-template>
+
+<tab-container [navs]="navs"></tab-container>
+
+<ng-template #headerTemplate>
+  <h1>Hanh</h1>
+</ng-template>
+<tab-container [navs]="navs" [headerTemplate]="headerTemplate"></tab-container>
