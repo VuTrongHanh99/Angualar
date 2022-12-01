@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthorListComponent } from './author-list/author-list.component';
 import { AuthorDetailComponent } from './author-detail/author-detail.component';
+import { ToggleComponent } from './toggle/toggle.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthorListComponent,
-    AuthorDetailComponent
+    AuthorDetailComponent,
+    ToggleComponent
   ],
   imports: [
     BrowserModule,
