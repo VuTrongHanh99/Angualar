@@ -9,7 +9,7 @@ import { Component, Input, TemplateRef } from '@angular/core';
       <li class="nav-item" *ngFor="let item of navs">
         <a class="nav-link" href="#">
         <ng-container *ngIf="headerTemplate;else noTemplate">
-        <ng-container *ngTemplateOutlet="headerTemplate || defaultTabButtons;" 
+        <ng-container *ngTemplateOutlet="headerTemplate; context:{ $implicit: item}" 
         >
         </ng-container>
         </ng-container>
@@ -29,7 +29,5 @@ export class TabContainerComponent {
   @Input() navs!: string[]; 
   // Custom template provided by parent
   @Input() headerTemplate!: TemplateRef<any>; // Custom template provided by parent
-  defaultTabButtons=`<h1></h1>`
-  //context:{$implicit:link}
 
 }

@@ -18,7 +18,7 @@
 
 <tab-container [navs]="navs"></tab-container>
 
-<ng-template #headerTemplate>
-  <h1>Hanh</h1>
+<ng-template #headerTemplate let-l>
+  <label class="btn btn-button">{{l}}</label>
 </ng-template>
 <tab-container [navs]="navs" [headerTemplate]="headerTemplate"></tab-container>
