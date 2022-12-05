@@ -1,36 +1,25 @@
-<div class="card mx-4">
-  <div class="card-header">
-    You have selected
-    <ng-container [ngTemplateOutlet]="counterTmpl"></ng-container>.
-  </div>
-  <div class="card-body">
-    There are <ng-container [ngTemplateOutlet]="counterTmpl"></ng-container> was
-    selected.
-  </div>
-  <div class="card-footer">
-    You have selected
-    <ng-container [ngTemplateOutlet]="counterTmpl"></ng-container>.
-  </div>
-</div>
-<ng-template #counterTmpl>
-  <span class="badge badge-primary">{{ counter }}</span> items
-</ng-template>
-
-<tab-container [navs]="navs"></tab-container>
-
-<ng-template #headerTemplate let-l>
-  <label class="btn btn-button">{{l}}</label>
-</ng-template>
-<tab-container [navs]="navs" [headerTemplate]="headerTemplate"></tab-container>
+<button class="btn btn-primary" (click)="showTab = !showTab">Toggle tab 3</button>
 
 <app-bs-tab-group>
 	<app-tab-panel title="Tab 1">
+		<ng-template tabPanelContent>
 			content tab 1
+			<app-counter></app-counter>
+		</ng-template>
 	</app-tab-panel>
+
 	<app-tab-panel title="Tab 2">
+		<ng-template tabPanelContent>
 			content tab 2
+			<app-counter></app-counter>
+		</ng-template>
 	</app-tab-panel>
-	<app-tab-panel title="Tab 3">
+	<app-tab-panel title="Tab 3" *ngIf="showTab">
+		<ng-template tabPanelContent>
 			content tab 3
+			<app-counter></app-counter>
+		</ng-template>
 	</app-tab-panel>
 </app-bs-tab-group>
+
+<app-counter></app-counter>

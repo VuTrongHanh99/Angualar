@@ -7,6 +7,9 @@ import { TabContainerComponent } from './tab-container/tab-container.component';
 import { TabGroupComponent } from './tab-group/tab-group.component';
 import { BsTabGroupComponent } from './bs-tab-group/bs-tab-group.component';
 import { TabPanelComponent } from './tab-panel/tab-panel.component';
+import { ToggleComponent } from './toggle/toggle.component';
+import { CounterComponent } from './counter/counter.component';
+import { TabPanelContentDirective } from './tab-panel-content.directive';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { TabPanelComponent } from './tab-panel/tab-panel.component';
     TabContainerComponent,
     TabGroupComponent,
     BsTabGroupComponent,
-    TabPanelComponent
+    TabPanelComponent,
+    ToggleComponent,
+    CounterComponent,
+    TabPanelContentDirective
   ],
   imports: [
     BrowserModule,
